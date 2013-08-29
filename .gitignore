@@ -19,3 +19,5 @@ library/.project
 library/.classpath
 sample/.classpath
 sample/.project
+
+*.DS_Store
