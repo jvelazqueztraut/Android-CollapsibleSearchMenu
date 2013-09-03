@@ -3,21 +3,18 @@ package com.devspark.collapsiblesearchmenu;
 import android.content.Context;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
+
 
 /**
  * 
@@ -36,7 +33,7 @@ public class CollapsibleMenuUtils {
 	 *            - true if use light them for ActionBar, else false
 	 * @return
 	 */
-	public static MenuItem addSearchMenuItem(Menu menu, Boolean b,
+	public static MenuItem addSearchMenuItem(Menu menu, boolean b,
 			final TextWatcher textWatcher, final OnKeyListener keyListener) {
 		final MenuItem menuItem = menu.add(Menu.NONE,
 				R.id.collapsible_search_menu_item, Menu.NONE,
@@ -56,10 +53,10 @@ public class CollapsibleMenuUtils {
 			public boolean onMenuItemActionExpand(MenuItem item) {
 				editText.addTextChangedListener(textWatcher);
 				editText.setOnKeyListener(keyListener);
-				showKeyboard(editText);
 				
 				if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
 					// only for honeycomb and newer versions
+					showKeyboard(editText);
 					editText.requestFocus();
 				}     
 				return true;
@@ -105,7 +102,6 @@ public class CollapsibleMenuUtils {
 					editText.setText(null);
 				} else {
 					menuItem.collapseActionView();
-					editText.requestFocus();
 				}
 			}
 		});
