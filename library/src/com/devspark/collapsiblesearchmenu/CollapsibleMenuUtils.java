@@ -38,7 +38,7 @@ public class CollapsibleMenuUtils {
 		final MenuItem menuItem = menu.add(Menu.NONE,
 				R.id.collapsible_search_menu_item, Menu.NONE,
 				R.string.search_go);
-		menuItem.setIcon(R.drawable.ic_action_search)
+		menuItem.setIcon(R.drawable.ic_search)
 				.setActionView(R.layout.search_view)
 				.setShowAsAction(
 						MenuItem.SHOW_AS_ACTION_ALWAYS
